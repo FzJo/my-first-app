@@ -1,18 +1,19 @@
-import React from "react";
-import { Layout, ArticleList } from "../components";
-import { categories, articles } from "../data";
-import { NotFoundPage } from ".";
+import React from 'react';
+import { Layout, ArticleList } from '../components';
+import { categories, articles } from '../data';
+import { NotFoundPage } from '.';
 
-const Category = props => {
+const Category = (props) => {
   const id = Number(props.match.params.id);
   const category = categories[id];
 
-  // Add logic
   if (!category) {
     return <NotFoundPage />;
   }
 
-  const selectedArticles = articles.filter(item => item.categoryId === id);
+  const selectedArticles = articles.filter(item =>
+    item.categoryId === id
+  );
 
   return (
     <Layout>
@@ -20,6 +21,6 @@ const Category = props => {
       <ArticleList articles={selectedArticles} />
     </Layout>
   );
-};
+}
 
 export default Category;

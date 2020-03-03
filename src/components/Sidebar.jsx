@@ -2,23 +2,24 @@ import React from "react";
 import { ListGroup } from "react-bootstrap";
 import { articles, categories } from "../data/index";
 
+const SidebarSection = props => (
+  <section>
+    <h2>{props.title}</h2>
+    <ListGroup>
+      {props.items.map((item, index) => (
+        <ListGroup.Item key={`link${index}`}>{item}</ListGroup.Item>
+      ))}
+    </ListGroup>
+  </section>
+);
+
 const Sidebar = () => (
   <aside>
-    <ListGroup>
-      {articles.map((item, index) => (
-        <ListGroup.Item key={`article-link${index}`}>
-          {item.title}
-        </ListGroup.Item>
-      ))}
-    </ListGroup>
-    <ListGroup>
-      <h3>Categories</h3>
-      {categories.map((item, index) => (
-        <ListGroup.Item key={`category-link${index}`}>
-          {item.name}
-        </ListGroup.Item>
-      ))}
-    </ListGroup>
+    <SidebarSection title="Articles" items={articles.map(item => item.title)} />
+    <SidebarSection
+      title="Categories"
+      items={categories.map(item => item.name)}
+    />
   </aside>
 );
 export default Sidebar;

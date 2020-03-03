@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { Form, Button } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 class ContactForm extends Component {
   state = {
-    email: "",
-    message: ""
+    email: '',
+    message: '',
   };
 
-  handleChange = propName => event => {
+  handleChange = (propName) => (event) => {
     const newValue = event.target.value;
     this.setState({ [propName]: newValue });
-  };
+  }
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     event.preventDefault();
     console.log(this.state);
-  };
+  }
 
   render = () => {
     const { email, message } = this.state;
@@ -24,32 +24,22 @@ class ContactForm extends Component {
       <Form onSubmit={this.handleFormSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            onChange={this.handleChange("email")}
-            value={email}
-          />
+          <Form.Control type="email" placeholder="Enter email" onChange={this.handleChange('email')} value={email} />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-
+    
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Message</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows="3"
-            onChange={this.handleChange("message")}
-            value={message}
-          />
+          <Form.Control as="textarea" rows="3" onChange={this.handleChange('message')} value={message} />
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>
     );
-  };
+  }
 }
 
 export default ContactForm;

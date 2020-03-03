@@ -27,7 +27,7 @@ class ContactForm extends Component {
           <Form.Control
             type="email"
             placeholder="Enter email"
-            onChange={this.handleChange('email')}
+            onChange={this.handleChange("email")}
             value={email}
           />
           <Form.Text className="text-muted">
@@ -40,7 +40,7 @@ class ContactForm extends Component {
           <Form.Control
             as="textarea"
             rows="3"
-            onChange={this.handleChange('message')}
+            onChange={this.handleChange("message")}
             value={message}
           />
         </Form.Group>

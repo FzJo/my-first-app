@@ -10,19 +10,23 @@ class ContactForm extends Component {
   handleEmailChange = event => {
     const email = event.target.value;
     this.setState({ email });
-    console.log(email);
   };
 
   handleMessageChange = event => {
     const message = event.target.value;
     this.setState({ message });
-    console.log(message);
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log(this.state);
   };
 
   render = () => {
     const { email, message } = this.state;
+
     return (
-      <Form>
+      <Form onSubmit={this.handleFormSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -36,12 +40,11 @@ class ContactForm extends Component {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Your Messsage</Form.Label>
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Message</Form.Label>
           <Form.Control
             as="textarea"
             rows="3"
-            placeholder="Enter your message here"
             onChange={this.handleMessageChange}
             value={message}
           />

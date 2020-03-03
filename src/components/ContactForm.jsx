@@ -7,14 +7,9 @@ class ContactForm extends Component {
     message: ""
   };
 
-  handleEmailChange = event => {
-    const email = event.target.value;
-    this.setState({ email });
-  };
-
-  handleMessageChange = event => {
-    const message = event.target.value;
-    this.setState({ message });
+  handleChange = propName => event => {
+    const newValue = event.target.value;
+    this.setState({ [propName]: newValue });
   };
 
   handleFormSubmit = event => {
@@ -32,7 +27,7 @@ class ContactForm extends Component {
           <Form.Control
             type="email"
             placeholder="Enter email"
-            onChange={this.handleEmailChange}
+            onChange={this.handleChange('email')}
             value={email}
           />
           <Form.Text className="text-muted">
@@ -45,7 +40,7 @@ class ContactForm extends Component {
           <Form.Control
             as="textarea"
             rows="3"
-            onChange={this.handleMessageChange}
+            onChange={this.handleChange('message')}
             value={message}
           />
         </Form.Group>

@@ -20,6 +20,7 @@ class ContactForm extends Component {
   };
 
   render = () => {
+    const { email, message } = this.state;
     return (
       <Form>
         <Form.Group controlId="formBasicEmail">
@@ -28,7 +29,7 @@ class ContactForm extends Component {
             type="email"
             placeholder="Enter email"
             onChange={this.handleEmailChange}
-            value={this.state.email}
+            value={email}
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -42,7 +43,7 @@ class ContactForm extends Component {
             rows="3"
             placeholder="Enter your message here"
             onChange={this.handleMessageChange}
-            value={this.state.message}
+            value={message}
           />
         </Form.Group>
         <Button variant="primary" type="submit">

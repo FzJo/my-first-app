@@ -1,7 +1,6 @@
 import React from "react";
 import { ListGroup } from "react-bootstrap";
-import { articles } from "../data/index";
-import Category from "./Category";
+import { articles, categories } from "../data/index";
 
 const Sidebar = () => (
   <aside>
@@ -12,7 +11,14 @@ const Sidebar = () => (
         </ListGroup.Item>
       ))}
     </ListGroup>
-    <Category />
+    <ListGroup>
+      <h3>Categories</h3>
+      {categories.map((item, index) => (
+        <ListGroup.Item key={`category-link${index}`}>
+          {item.name}
+        </ListGroup.Item>
+      ))}
+    </ListGroup>
   </aside>
 );
 export default Sidebar;
